@@ -1,0 +1,337 @@
+$layout-width-inner: 1226px;//インナーの幅
+
+// ブレークポイント
+$breakpoints: (
+"sp": "screen and (max-width: 767px)",
+"tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+"pc": "screen and (min-width: #{$layout-width-inner})",
+);
+
+// メディアクエリー
+@mixin mq($breakpoint: sp) {
+
+@media #{map-get($breakpoints, $breakpoint)} {
+
+    @content;
+}
+}
+
+//使用色
+$green: #66FF00;
+$black: #333333;
+
+//フォントサイズ
+$large: 34px;
+$midium: 18px;
+$small: 14px;
+$verysmall: 12px;
+
+//リンク要素ホバー
+@mixin hover {
+    transition: .3s;
+    opacity: .8;
+}
+@mixin btn ($width,$height){
+    background-color: $red;
+    width: $width;
+    height: $height;
+    color: $white;
+    line-height: $height;
+    &:hover {
+    @include hover;
+    }
+    @include mq('sp') {
+        width: 120px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 0.3rem;
+    }
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+
+
+
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+
+    body {
+        max-width: 1140px;
+        margin:  0 auto;
+        text-align: center;
+        padding: 0;
+        font-family: pt-sans, 'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        background-attachment: fixed;
+        color: $black;
+        font-size: 1.6rem;
+        background-color: $green;
+        position: relative;
+        
+        
+    article,
+    aside,
+    footer,
+    header,
+    nav,
+    section,
+    main {
+        display: block;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    p,
+    span,
+    em,
+    small,
+    strong,
+    sub,
+    sup,
+    mark,
+    del,
+    ins,
+    strike,
+    abbr,
+    dfn,
+    blockquote,
+    q,
+    cite,
+    code,
+    pre,
+    ol,
+    ul,
+    li,
+    dl,
+    dt,
+    dd,
+    div,
+    section,
+    article,
+    main,
+    aside,
+    nav,
+    header,
+    hgroup,
+    footer,
+    img,
+    figure,
+    figcaption,
+    address,
+    time,
+    audio,
+    video,
+    canvas,
+    iframe,
+    details,
+    summary,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    a {
+        color: inherit;
+        outline: none;
+        text-decoration: none;
+    }
+    .grass {
+        position: absolute;
+        img {
+        width: 80px;
+        }
+        &.grass1 {
+            top: 200px;
+            right: 360px;
+        }
+        &.grass2 {
+            top: 290px;
+            right: 610px;
+        }
+        &.grass3 {
+            top: 380px;
+            right: 450px;
+        }
+        &.grass4 {
+            top: 450px;
+            right: 230px;
+        }
+        &.grass5 {
+            top: 200px;
+            right: 700px;
+        }
+        &.grass6 {
+            top: 450px;
+            right: 800px;
+        }
+    }
+    
+    
+    h1 {
+        margin-top: 50px;
+        font-size: 30px;
+    }
+
+    button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+}
+    .btn__container {
+        width: 100%;
+        margin: 50px auto;
+        display: flex;
+        justify-content: center;
+        @at-root .btn {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+            color: #fff;
+            border-radius: 3px;
+            &.btn__start{
+            background-color: #FF0000;
+            border-bottom: solid 4px #AA0000;
+                font-size: 25px;
+            }
+            
+            &:active {
+                transform: translateY(4px);
+                box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+                border-bottom: none;
+            }
+        }
+    }
+    
+    #container {
+        max-width: 700px;
+        width: 100%;
+        margin: 50px auto;
+        display: grid;
+            grid-template-columns: repeat(3,33%);
+            grid-template-rows: repeat(3,100px);
+            grid-gap: 10px;
+
+        
+            .mole__item {
+                cursor: pointer;
+                    img {
+                        border: none;
+                        height: auto;
+                        max-width: 100%;
+                        vertical-align: top;
+                        width: 100px;
+                        height: auto;
+                    }
+                }
+            }
+            .table {
+                width: 600px;
+                height: 80px;
+                margin: 0 auto;
+                display: flex;
+                justify-self: center;
+                
+                .timer-score {
+                    font-size: 3rem;
+                    margin-right: 4rem;
+                    width: 275px;
+                    line-height: 80px;
+                    background-color: yellow;
+                    padding: 0 20px;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    & #timer {
+
+                    }
+                    & #scoreAlert {
+
+                    }
+                }
+                
+            }
+            
+#success {
+    display: none;
+}
+#good {
+    display: none;
+}
+#cheer {
+    display: none;
+}
+.active {
+    display: block;
+}
+            .score {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background-color:rgba(0,0,0,0.7);
+                top: 0;
+                left: 0;
+                .score__container {
+                    position: absolute;
+                    width: 50%;
+                    margin: 0 auto;
+                    height: 400px;
+                    background-color: #fff;
+                    top: 200px;
+                    left: 0;
+                    right: 0;
+                    .score__title {
+                        font-size: 40px;
+                        margin-top: 30px;
+                    }
+                    .score__score {
+                        font-size: 70px;
+                        span {
+                            font-size: 20px;
+                        }
+                    }
+                    .btn__continue {
+                        background-color: #0000CC;
+            border-bottom: solid 4px #000066;
+            margin: 0 auto;
+                    }
+                }
+            }
+    }
+    
+}
+
+
